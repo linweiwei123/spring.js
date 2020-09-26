@@ -1,11 +1,34 @@
 import { Spring, Context, Middleware } from './src/spring.ts';
+import { serveStatic } from './src/deps.ts';
 
-let spring = new Spring();
+let app = new Spring();
 
-spring.use(async (ctx: Context, next) => {
-  console.log('1');
+app.use(serveStatic('public'));
+
+app.use(async (ctx: Context, next) => {
   next();
-  ctx.response.body = 'hello word!';
 });
 
-await spring.listen(3000);
+app.get('/home', async (ctx: Context) => {
+  ctx.render('index.html', {
+    data: {
+      name: 'linweiwei'
+    }
+  });
+  return;
+});
+
+app.post('/api/data', async (ctx: Context, next) => {
+  ctx.response.body = `{
+    code: 0,
+    data: {},
+    msg: "success",
+  }`;
+});
+
+app.use(async (ctx: Context, next) => {
+  ctx.response.body = '404';
+  return;
+});
+
+await app.listen(3000);

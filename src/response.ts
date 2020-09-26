@@ -1,4 +1,4 @@
-import { ServerResponse, Status } from './dep.ts';
+import { ServerResponse, Status } from './deps.ts';
 
 type Reader = Deno.Reader;
 

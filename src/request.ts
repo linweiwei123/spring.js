@@ -1,7 +1,7 @@
-import { ServerRequest } from './dep.ts';
+import { ServerRequest } from './deps.ts';
 
 export class Request {
-  private _serverRequest: ServerRequest;
+  _serverRequest: ServerRequest;
 
   constructor(request: ServerRequest) {
     this._serverRequest = request;
