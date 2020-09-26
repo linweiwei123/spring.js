@@ -16,4 +16,8 @@ export class Response {
       headers: this.headers
     };
   }
+
+  setResponse(options: { headers?: Headers; body?: any }) {
+    Object.assign(this, options);
+  }
 }

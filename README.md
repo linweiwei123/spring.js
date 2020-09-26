@@ -1,3 +1,4 @@
+```typescript
 import { Spring, Context, Middleware } from './src/spring.ts';
 
 let app = new Spring();
@@ -50,3 +51,4 @@ app.get('/home', async (ctx: Context) => {
 // });
 
 await app.listen(4000);
+```
