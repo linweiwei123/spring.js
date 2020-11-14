@@ -5,12 +5,12 @@ import { View } from './view.ts';
 
 export class Context {
   request: Request;
-  response = new Response();
+  response: Response;
   view = new View();
 
   constructor(serverRequest: ServerRequest) {
     this.request = new Request(serverRequest);
-    this.response.status = Status.NotFound;
+    this.response = new Response(this.request);
   }
 
   render(templateStr: string, options: object) {

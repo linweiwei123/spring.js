@@ -52,3 +52,9 @@ app.get('/home', async (ctx: Context) => {
 
 await app.listen(4000);
 ```
+
+## start app.ts
+
+```
+deno run --allow-run --allow-net --allow-read --unstable app.ts
+```
